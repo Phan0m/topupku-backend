@@ -24,7 +24,7 @@ exports.createTransaction = async (req, res) => {
                 gross_amount: cleanAmount // Pakai harga yang sudah dibersihkan
             },
             "notification_url": "https://topupku-backend.vercel.app/api/notification",
-            
+
             customer_details: customerDetails,
             credit_card: {
                 secure: true
@@ -46,3 +46,5 @@ exports.createTransaction = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+// update notifikasi final
