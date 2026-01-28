@@ -118,10 +118,11 @@ app.post('/api/payment', async (req, res) => {
     try {
         const { orderId, amount, itemDetails, customerDetails } = req.body;
         let parameter = {
-            "transaction_details": { "order_id": orderId, "gross_amount": amount },
-            "credit_card":{ "secure" : true },
-            "customer_details": customerDetails
-        };
+    "transaction_details": { "order_id": orderId, "gross_amount": amount },
+    "credit_card": { "secure": true },
+    "customer_details": customerDetails, // <--- JANGAN LUPA KOMA INI
+    "notification_url": "https://topupku-backend.vercel.app/api/notification" // <--- INI BARIS BARUNYA
+};
         const transactionToken = await snap.createTransaction(parameter);
 
         // Simpan transaksi awal sebagai PENDING
