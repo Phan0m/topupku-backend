@@ -23,6 +23,8 @@ exports.createTransaction = async (req, res) => {
                 order_id: orderId,
                 gross_amount: cleanAmount // Pakai harga yang sudah dibersihkan
             },
+            "notification_url": "https://topupku-backend.vercel.app/api/notification",
+            
             customer_details: customerDetails,
             credit_card: {
                 secure: true
